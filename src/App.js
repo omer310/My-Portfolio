@@ -1,42 +1,57 @@
-import React, { useState, useEffect} from 'react';
-import { User, Folder, Layers, Mail, Award, GraduationCap, Moon, Sun, Send, Linkedin, Github, Twitter,ExternalLink } from 'lucide-react';
-import { motion} from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { User, Folder, Layers, Mail, Award, GraduationCap, Moon, Sun, Send, Linkedin, Github, Twitter, ExternalLink, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ParticleBackground from './ParticleBackground';
 import StorySection from './StorySection';
 import BMN from './Images/BMN.png';
 import FA from './Images/FA.png';
 import LIVE from './Images/LIVE.png';
-import LOGO from './Images/Logo.png'; // Import your logo image
+import LOGO from './Images/Logo.png';
 import SET from './Images/SET.png';
 import { HashRouter as Router } from 'react-router-dom';
 
-
-
-const Dock = ({ children }) => {
+const Dock = ({ children, isMobile, isOpen, toggleMenu }) => {
   return (
-    <div className="flex items-center space-x-4">
-      {children}
+    <div className={`${isMobile ? 'flex flex-col items-start' : 'flex items-center space-x-4'}`}>
+      {isMobile && (
+        <button onClick={toggleMenu} className="mb-4">
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      )}
+      {(!isMobile || isOpen) && children}
     </div>
   );
-};  
+};
 
-const DockIcon = ({ children, onClick, label }) => {
+const DockIcon = ({ children, onClick, label, isMobile }) => {
   return (
     <div
-      className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:transform hover:translate-y-1"
+      className={`flex ${isMobile ? 'flex-row items-center mb-4' : 'flex-col items-center'} cursor-pointer transition-all duration-300 hover:transform hover:translate-y-1`}
       onClick={onClick}
     >
-      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+      <div className={`flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors ${isMobile ? 'mr-4' : ''}`}>
         {children}
       </div>
-      {label && <span className="text-xs font-medium text-gray-600 dark:text-gray-300 mt-1">{label}</span>}
+      {label && <span className={`${isMobile ? 'text-sm' : 'text-xs'} font-medium text-gray-600 dark:text-gray-300 ${isMobile ? '' : 'mt-1'}`}>{label}</span>}
     </div>
   );
 };
 
 const PersonalWebsite = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -46,15 +61,21 @@ const PersonalWebsite = () => {
     }
   }, [darkMode]);
 
- 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMobile) {
+      setIsMenuOpen(false);
     }
   };
 
@@ -104,17 +125,17 @@ const PersonalWebsite = () => {
       <div className={`min-h-screen relative font-montserrat ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-gray-100 text-black'} transition-colors duration-300`}>
         <ParticleBackground />
         <div className="relative z-10">
-          <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-5xl">
+          <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-5xl ${isMobile ? 'px-4' : ''}`}>
             <nav className={`px-6 py-3 rounded-xl transition-all duration-300 ${darkMode ? 'bg-gray-800/10' : 'bg-white/10'} shadow-lg backdrop-blur-md`}>
-              <div className="flex items-center justify-between">
-                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center mr-4">
+              <div className={`flex items-center ${isMobile ? 'flex-col' : 'justify-between'}`}>
+                <div className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center ${isMobile ? 'mb-4' : 'mr-4'}`}>
                   <img 
                     src={LOGO} 
                     alt="Logo" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <Dock>
+                <Dock isMobile={isMobile} isOpen={isMenuOpen} toggleMenu={toggleMenu}>
                   {[
                     { id: 'story', icon: <User size={20} />, label: 'Story' },
                     { id: 'projects', icon: <Folder size={20} />, label: 'Projects' },
@@ -123,11 +144,11 @@ const PersonalWebsite = () => {
                     { id: 'honors', icon: <Award size={20} />, label: 'Honors' },
                     { id: 'connect', icon: <Mail size={20} />, label: 'Connect' },
                   ].map((item) => (
-                    <DockIcon key={item.id} onClick={() => scrollToSection(item.id)} label={item.label}>
+                    <DockIcon key={item.id} onClick={() => scrollToSection(item.id)} label={item.label} isMobile={isMobile}>
                       {item.icon}
                     </DockIcon>
                   ))}
-                  <DockIcon onClick={toggleDarkMode} label={darkMode ? "Light" : "Dark"}>
+                  <DockIcon onClick={toggleDarkMode} label={darkMode ? "Light" : "Dark"} isMobile={isMobile}>
                     {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                   </DockIcon>
                 </Dock>
@@ -153,7 +174,7 @@ const PersonalWebsite = () => {
                   description="Designed and implemented a website for the Black Mentor Network, a non-profit organization that provides mentorship to underprivileged individuals. The website was built using Next.js, Tailwind CSS, and Firebase, and it allows users to browse mentorship opportunities and apply to the ones that interest them."
                   technologies={['HTML', 'CSS', 'JavaScript', 'Firebase', 'React', 'Next.js', 'Tailwind CSS']}
                   image={BMN}
-                  projectLink="https://blackmentornetwork.example.com"
+                  projectLink="https://blackmentornetwork.org/"
                 />
                 <ProjectCard
                   title="Live Transcription"

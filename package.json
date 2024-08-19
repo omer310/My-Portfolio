@@ -2,7 +2,7 @@
   "name": "my-personal-website",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://omer310.github.io/my-personal-website",
+  "homepage": "https://omer310.github.io/portfolio",
   "dependencies": {
     "@react-three/drei": "^9.109.2",
     "@react-three/fiber": "^8.16.8",
