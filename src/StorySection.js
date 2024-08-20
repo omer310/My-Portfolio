@@ -99,10 +99,7 @@ const StorySection = () => {
             >
               <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">My Unique Perspective</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-              My path from Sudan to the USA has been quite the ride, opening my eyes to new ways of thinking and problem-solving. I've picked up the knack for adapting on the fly and coming up with creative fixes.
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 text-justify">
-              I get a real kick out of using tech to make a difference in everyday life. With my unique background, I'm keen to jump in and cook up some exciting ideas in the tech world. Let's team up and create something awesome!
+              My unique perspective is … I been through a wild ride with computers and software. Started in Sudan, messing with PCs, then bam - civil war hits and I'm in the US learning English and coding at the same time. It's like fixing a broken computer, you gotta figure it out as you go. Had to learn new stuff - both coding and English - but that just made me better at solving problems in different ways. Adding some math skills from college, I see software kinda different now. It's about taking whatever comes at you and turning it into cool code. That's what makes me a different kind of software guy - I rebuilt computers, rebuilt my life, and now I'm making awesome software.
               </p>
               <motion.button
       whileHover={{ scale: 1.05 }}
