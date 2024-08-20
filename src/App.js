@@ -204,12 +204,12 @@ const PersonalWebsite = () => {
                 <SkillCard
                   title="Programming Languages"
                   items={[
-                    { name: 'C++', proficiency: 45 },
                     { name: 'Python', proficiency: 90 },
+                    { name: 'JavaScript', proficiency: 90 },
+                    { name: 'C++', proficiency: 45 },
                     { name: 'Java', proficiency: 50 },
                     { name: 'Kotlin', proficiency: 55 },
                     { name: 'Swift', proficiency: 70 },
-                    { name: 'JavaScript', proficiency: 90 }
                   ]}
                 />
                 <SkillCard
