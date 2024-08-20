@@ -202,38 +202,46 @@ const PersonalWebsite = () => {
                 transition={{ duration: 0.5, staggerChildren: 0.1 }}
               >
                 <SkillCard
-                  title="Frontend Development"
+                  title="Programming Languages"
                   items={[
+                    { name: 'C++', proficiency: 45 },
+                    { name: 'Python', proficiency: 90 },
+                    { name: 'Java', proficiency: 50 },
+                    { name: 'Kotlin', proficiency: 55 },
+                    { name: 'Swift', proficiency: 70 },
+                    { name: 'JavaScript', proficiency: 90 }
+                  ]}
+                />
+                <SkillCard
+                  title="Web Technologies"
+                  items={[
+                    { name: 'HTML/CSS', proficiency: 95 },
                     { name: 'React', proficiency: 90 },
                     { name: 'Next.js', proficiency: 85 },
                     { name: 'Vue.js', proficiency: 75 },
-                    { name: 'HTML/CSS', proficiency: 95 }
+                    { name: 'Tailwind CSS', proficiency: 85 },
+                    { name: 'Node.js', proficiency: 80 }
                   ]}
                 />
                 <SkillCard
-                  title="Backend Development"
+                  title="Backend & Databases"
                   items={[
-                    { name: 'Node.js', proficiency: 80 },
                     { name: 'Express', proficiency: 75 },
-                    { name: 'Python', proficiency: 90 },
-                    { name: 'Django', proficiency: 70 }
-                  ]}
-                />
-                <SkillCard
-                  title="Database"
-                  items={[
-                    { name: 'MongoDB', proficiency: 85 },
+                    { name: 'MongoDB', proficiency: 80 },
                     { name: 'PostgreSQL', proficiency: 80 },
-                    { name: 'Firebase', proficiency: 90 }
+                    { name: 'Firebase', proficiency: 65 },
+                    { name: 'SQL', proficiency: 70 }
                   ]}
                 />
                 <SkillCard
-                  title="DevOps"
+                  title="Tools & Technologies"
                   items={[
+                    { name: 'Git/GitHub', proficiency: 80 },
+                    { name: 'Xcode', proficiency: 75 },
                     { name: 'Docker', proficiency: 70 },
                     { name: 'Kubernetes', proficiency: 60 },
-                    { name: 'CI/CD', proficiency: 75 },
-                    { name: 'AWS', proficiency: 70 }
+                    { name: 'Bash', proficiency: 70 },
+                    { name: 'MS Office Suite', proficiency: 90 }
                   ]}
                 />
               </motion.div>
