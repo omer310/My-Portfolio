@@ -179,7 +179,7 @@ const PersonalWebsite = () => {
                 <ProjectCard
                   title="Live Transcription"
                   description="Turn your computer's sounds into text with this nifty app! Using Deepgram's API, it grabs your PC's audio and converts it to readable words in real-time. Watch as computer babble becomes actual sentences in a cool little window. It's tech magic made simple!"
-                  technologies={['Python', 'Deepgram API']}
+                  technologies={['Python', 'Deepgram API', 'OpenAI API', 'Customtkinter']}
                   image={LIVE}
                   projectLink="https://github.com/omer310/real-time-audio-transcription"
                 />
