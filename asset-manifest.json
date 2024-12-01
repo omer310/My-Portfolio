@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.e8abe1bc.css",
-    "main.js": "/portfolio/static/js/main.9a3b4de4.js",
+    "main.js": "/portfolio/static/js/main.306cb956.js",
     "static/media/QuranVerse.png": "/portfolio/static/media/QuranVerse.02a295879ca480b1dc18.png",
     "static/media/BMN.png": "/portfolio/static/media/BMN.c40378781b6cf0365b48.png",
     "static/media/resume.pdf": "/portfolio/static/media/resume.4b9939a53d7f8ce1db83.pdf",
@@ -13,10 +13,10 @@
     "static/media/LIVE.png": "/portfolio/static/media/LIVE.68a3f17f36bd3e0d832e.png",
     "index.html": "/portfolio/index.html",
     "main.e8abe1bc.css.map": "/portfolio/static/css/main.e8abe1bc.css.map",
-    "main.9a3b4de4.js.map": "/portfolio/static/js/main.9a3b4de4.js.map"
+    "main.306cb956.js.map": "/portfolio/static/js/main.306cb956.js.map"
   },
   "entrypoints": [
     "static/css/main.e8abe1bc.css",
-    "static/js/main.9a3b4de4.js"
+    "static/js/main.306cb956.js"
   ]
 }
