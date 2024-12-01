@@ -32,25 +32,25 @@ const StorySection = () => {
   };
 
   return (
-    <section id="story" className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl">
+    <section id="story" className="py-8 md:py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-100"
+          className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-gray-800 dark:text-gray-100"
         >
           My Journey in Tech
         </motion.h2>
         
-        <div className="flex flex-col lg:flex-row gap-12 items-center lg:items-start">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center lg:items-start">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="w-full lg:w-1/3"
           >
-            <div className="relative w-64 h-64 mx-auto">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto">
               <div className="absolute inset-0 bg-blue-500 rounded-lg opacity-10 rounded-3xl"></div>
               <div className="absolute inset-0 overflow-hidden rounded-lg border-4 border-white dark:border-gray-800 shadow-lg rounded-3xl">
                 <img 
@@ -81,11 +81,11 @@ const StorySection = () => {
             className="w-full lg:w-2/3"
           >
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
-              <div className="flex">
+              <div className="flex flex-wrap md:flex-nowrap">
                 {milestones.map((milestone, index) => (
                   <div
                     key={index}
-                    className={`flex-1 py-4 px-2 text-center cursor-pointer transition-colors duration-300 ${
+                    className={`flex-1 py-3 md:py-4 px-2 text-sm md:text-base text-center cursor-pointer transition-colors duration-300 ${
                       activeIndex === index 
                         ? 'bg-blue-500 text-white' 
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -115,14 +115,16 @@ const StorySection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6"
+              className="mt-6 md:mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 md:p-6"
             >
-              <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">My Unique Perspective</h3>
+              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-gray-800 dark:text-gray-100">
+                My Unique Perspective
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-justify">
               Back home in Sudan, I learned tech by fixing broken computers - taking them apart and making them work again. When war forced us to America, I had to do the same thing with my own life - rebuild piece by piece, learning English and coding along the way. Every challenge became an opportunity to problem-solve differently. Now I bring both technical skills and resilience to every project, knowing any problem can be solved if you break it down and keep pushing forward.
               </p>
-              <div className="flex items-center justify-between mt-8">
-                <div className="flex items-center space-x-4">
+              <div className="flex flex-col md:flex-row items-center justify-between mt-6 md:mt-8 space-y-4 md:space-y-0">
+                <div className="flex flex-wrap items-center gap-4">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

@@ -13,15 +13,33 @@ import TasbeehAppImage from './Images/TasbeehApp.png';
 import { HashRouter as Router } from 'react-router-dom';
 
 const Dock = ({ children, isMobile, isOpen, toggleMenu }) => {
+  const menuRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        toggleMenu();
+      }
+    };
+
+    if (isOpen && isMobile) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, isMobile, toggleMenu]);
+
   return (
     <div className="relative">
       {isMobile && (
         <button 
           onClick={toggleMenu} 
-          className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-300/50 dark:hover:bg-gray-700/50 transition-all"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
       )}
       <AnimatePresence>
@@ -33,29 +51,29 @@ const Dock = ({ children, isMobile, isOpen, toggleMenu }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
-                onClick={toggleMenu}
+                className="fixed inset-0 bg-gray-500/30 dark:bg-black/60 backdrop-blur-[2px] z-40"
               />
             )}
             <motion.div
-              initial={isMobile ? { opacity: 0, x: '100%' } : false}
-              animate={isMobile ? { opacity: 1, x: 0 } : false}
-              exit={isMobile ? { opacity: 0, x: '100%' } : false}
-              transition={{ type: 'tween', duration: 0.3 }}
+              ref={menuRef}
+              initial={isMobile ? { opacity: 0, y: -10 } : false}
+              animate={isMobile ? { opacity: 1, y: 0 } : false}
+              exit={isMobile ? { opacity: 0, y: -10 } : false}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className={`${
                 isMobile 
-                  ? 'fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-800 shadow-lg z-50'
+                  ? 'fixed top-4 right-4 left-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl z-50 rounded-2xl border border-gray-200/50 dark:border-gray-800/50'
                   : 'flex items-center space-x-4'
               }`}
             >
               <div className={`${
                 isMobile 
-                  ? 'flex flex-col w-full h-full pt-20 px-6 bg-white dark:bg-gray-800'
+                  ? 'flex flex-col w-full py-3'
                   : 'flex items-center space-x-4'
               }`}>
                 <div className={`${
                   isMobile 
-                    ? 'flex flex-col w-full space-y-2'
+                    ? 'grid grid-cols-1 gap-1 px-2'
                     : 'flex items-center space-x-4'
                 }`}>
                   {children}
@@ -71,19 +89,39 @@ const Dock = ({ children, isMobile, isOpen, toggleMenu }) => {
 
 const DockIcon = ({ children, onClick, label, isMobile }) => {
   return (
-    <div
-      className={`flex items-center ${isMobile ? 'w-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg' : 'flex-col'} cursor-pointer transition-all duration-300 ${!isMobile && 'hover:transform hover:translate-y-1'}`}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`
+        flex items-center gap-3 
+        ${isMobile 
+          ? 'w-full p-2 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all cursor-pointer'
+          : 'flex-col cursor-pointer transition-all duration-300 hover:transform hover:translate-y-1'
+        }
+      `}
       onClick={onClick}
     >
-      <div className={`flex items-center justify-center w-9 h-9 rounded-lg ${isMobile ? 'bg-gray-200 dark:bg-gray-600' : 'bg-gray-100 dark:bg-gray-700'} hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors`}>
+      <div className={`
+        flex items-center justify-center 
+        ${isMobile 
+          ? 'w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+          : 'w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-700'
+        }
+      `}>
         {children}
       </div>
       {label && (
-        <span className={`font-medium text-gray-700 dark:text-gray-300 ${isMobile ? 'text-sm ml-3' : 'text-xs mt-1'}`}>
+        <span className={`
+          font-medium 
+          ${isMobile 
+            ? 'text-sm text-gray-600 dark:text-gray-300'
+            : 'text-xs mt-1 text-gray-700 dark:text-gray-300'
+          }
+        `}>
           {label}
         </span>
       )}
-    </div>
+    </motion.div>
   );
 };
 
