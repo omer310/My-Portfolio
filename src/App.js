@@ -458,8 +458,8 @@ const PersonalWebsite = () => {
                   {[
                     { id: 'story', icon: <User size={20} />, label: 'Story' },
                     { id: 'skills', icon: <Layers size={20} />, label: 'Skills' },
-                    { id: 'projects', icon: <Folder size={20} />, label: 'Projects' },
                     { id: 'experience', icon: <Briefcase size={20} />, label: 'Exp' },
+                    { id: 'projects', icon: <Folder size={20} />, label: 'Projects' },
                     { id: 'education', icon: <GraduationCap size={20} />, label: 'Education' },
                     { id: 'honors', icon: <Award size={20} />, label: 'Honors' },
                     { id: 'connect', icon: <Mail size={20} />, label: 'Connect' },
@@ -485,6 +485,8 @@ const PersonalWebsite = () => {
               <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Tech Stack</h2>
               <TechStack />
             </section>
+
+            <ExperienceSection />
 
             <section id="projects" className="py-16">
               <h2 className="text-3xl font-bold mb-8">Selected Works</h2>
@@ -533,8 +535,6 @@ const PersonalWebsite = () => {
                 />
               </div>
             </section>
-
-            <ExperienceSection />
 
             <section id="education" className="py-16">
               <h2 className="text-3xl font-bold mb-8">Education</h2>

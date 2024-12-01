@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.0d667c91.css",
-    "main.js": "/portfolio/static/js/main.4f74909e.js",
-    "static/media/QuranVerse.png": "/portfolio/static/media/QuranVerse.02a295879ca480b1dc18.png",
-    "static/media/BMN.png": "/portfolio/static/media/BMN.c40378781b6cf0365b48.png",
-    "static/media/resume.pdf": "/portfolio/static/media/resume.4b9939a53d7f8ce1db83.pdf",
-    "static/media/SET.png": "/portfolio/static/media/SET.fa75153689914416b0c4.png",
-    "static/media/Logo.png": "/portfolio/static/media/Logo.5e01a3526cc1159c8935.png",
-    "static/media/FA.png": "/portfolio/static/media/FA.5b69a3fcc2baeb7f6d34.png",
-    "static/media/TasbeehApp.png": "/portfolio/static/media/TasbeehApp.f7f8a0f963752c0fe90f.png",
-    "static/media/avatar.png": "/portfolio/static/media/avatar.3fe7f2fddcc18536fa8d.png",
-    "static/media/LIVE.png": "/portfolio/static/media/LIVE.68a3f17f36bd3e0d832e.png",
-    "index.html": "/portfolio/index.html",
-    "main.0d667c91.css.map": "/portfolio/static/css/main.0d667c91.css.map",
-    "main.4f74909e.js.map": "/portfolio/static/js/main.4f74909e.js.map"
+    "main.css": "/static/css/main.0d667c91.css",
+    "main.js": "/static/js/main.aaec1f12.js",
+    "static/media/QuranVerse.png": "/static/media/QuranVerse.02a295879ca480b1dc18.png",
+    "static/media/BMN.png": "/static/media/BMN.c40378781b6cf0365b48.png",
+    "static/media/resume.pdf": "/static/media/resume.4b9939a53d7f8ce1db83.pdf",
+    "static/media/SET.png": "/static/media/SET.fa75153689914416b0c4.png",
+    "static/media/Logo.png": "/static/media/Logo.5e01a3526cc1159c8935.png",
+    "static/media/FA.png": "/static/media/FA.5b69a3fcc2baeb7f6d34.png",
+    "static/media/TasbeehApp.png": "/static/media/TasbeehApp.f7f8a0f963752c0fe90f.png",
+    "static/media/avatar.png": "/static/media/avatar.3fe7f2fddcc18536fa8d.png",
+    "static/media/LIVE.png": "/static/media/LIVE.68a3f17f36bd3e0d832e.png",
+    "index.html": "/index.html",
+    "main.0d667c91.css.map": "/static/css/main.0d667c91.css.map",
+    "main.aaec1f12.js.map": "/static/js/main.aaec1f12.js.map"
   },
   "entrypoints": [
     "static/css/main.0d667c91.css",
-    "static/js/main.4f74909e.js"
+    "static/js/main.aaec1f12.js"
   ]
 }
