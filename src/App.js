@@ -176,19 +176,19 @@ const PersonalWebsite = () => {
       {
         name: 'Web Technologies',
         description: 'Frontend & frameworks',
-        skills: ['HTML/CSS', 'React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'Node.js'],
+        skills: ['HTML/CSS', 'React', 'React Native', 'TypeScript', 'Next.js', 'Vue.js', 'Tailwind CSS', 'Node.js'],
         icon: Globe
       },
       {
         name: 'Backend & Databases',
         description: 'Server & data management',
-        skills: ['Express', 'MongoDB', 'PostgreSQL', 'Firebase', 'SQL'],
+        skills: ['Express', 'MongoDB', 'PostgreSQL', 'SQL','Firebase', 'Google Cloud Platform'],
         icon: Database
       },
       {
         name: 'Tools & Technologies',
         description: 'Development tools',
-        skills: ['Git/GitHub', 'Xcode', 'Docker', 'Kubernetes', 'Bash', 'MS Office Suite'],
+        skills: ['Git/GitHub', 'Xcode', 'Docker', 'Kubernetes', 'Bash', 'Jest','MS Office Suite', ],
         icon: Wrench
       }
     ];
